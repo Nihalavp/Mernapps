@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+    
+<script>
+function Todo() {
+    const [tasks, setTasks] = useState([]);
+
+    function addTask() {
+        const newTasks = [...tasks, { text: '', completed: false }];
+        setTasks(newTasks);
+    }
+
+    function removeTask() {
+        const newTasks = tasks.slice(0, -1);
+        setTasks(newTasks);
+    }
+
+    function updateTaskText(index, newText) {
+        const updatedTasks = tasks.map((task, i) =>
+            index === i ? { ...task, text: newText } : task
+        );
+        setTasks(updatedTasks);
+    }
+
+    function toggleTaskCompletion(index) {
+        const updatedTasks = tasks.map((task, i) =>
+            index === i ? { ...task, completed: !task.completed } : task
+        );
+        setTasks(updatedTasks);
+    }
+    </script>
+
+
+        <div>
+            <h1>To do app</h1>
+            // <div className='container'>
+            //     {tasks.map((task, index) => (
+            //         <div key={index} className="task">
+            //             <input
+            //                 type="text"
+            //                 value={task.text}
+            //                 onChange={(e) => updateTaskText(index, e.target.value)}
+            //             />
+            //             <button onClick={() => toggleTaskCompletion(index)}>
+            //                 {task.completed ? 'Undo' : 'Done'}
+            //             </button>
+            //         </div>
+            //     )}
+                <button id="btn1" onClick="addTask()">+</button>
+                <button id="btn2" onClick="removeTask()">-</button>
+            </div>
+        </div>
+    
+}
+
+</body>
+</html>
+

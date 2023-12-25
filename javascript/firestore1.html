@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name"><br><br>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email"><br><br>
+    
+        <label>Mobile Number:</label>
+        <input type="number" id="mobile" placeholder="enter your Number">
+        <br><br>
+    <button id="btn">
+        click
+    </button>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+        
+        import {getFirestore,addDoc,collection } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCh-i9VmOErzmcjlna4Efb8L2bszLcU_lE",
+          authDomain: "baacrud1.firebaseapp.com",
+          projectId: "baacrud1",
+          storageBucket: "baacrud1.appspot.com",
+          messagingSenderId: "61485654201",
+          appId: "1:61485654201:web:dec17e50b0078ebfe4fb68",
+          measurementId: "G-1QTZYR374J"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        var btn1=document.getElementById('btn');
+        var name=document.getElementById("name");
+        var email=document.getElementById('email');
+        var mobile=document.getElementById('mobile');
+        
+
+        btn1.addEventListener('click',(e) => {
+            
+addDoc(collection(db,'User'),{
+    name:name.value,
+    email:email.value,
+    mobile:mobile.value
+})
+        })
+
+      </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/bst/css/bootstrap.css">
+    <script src="/bst/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-1"></div>
+            <div class="container-fluid">
+            <div class="col-5">
+    <form action="submit_data" method="post">
+       name:  <input type="text" name="txtname" class="form-control">
+       <label class="form-label">class:</label>
+       <select name="selClass" class="form-select" aria-label="Default select example">
+        <option value="plus one">plus one</option>
+        <option value="plus two">plus two</option>
+       </select>
+       
+       <label class="form-label">stream:</label> 
+       <select name="selStream" class="form-select" aria-label="Default select example">
+        <option>science</option>
+        <option>humanities</option>
+        <option>commerce</option>
+       </select>
+       
+      <label class="form-label"> mark:</label> <input type="text" name="txtmark" class="form-control">
+       <label class="form-label">Grade</label>
+       <select name="selGrade" class="form-select" aria-label="Default select example">
+        <option>A+</option>
+        <option>A</option>
+        <option>B+</option>
+        <option>B</option>
+        <option>C+</option>
+        <option>C</option>
+       </select>
+
+    
+       <input type="submit" value="enter" class="btn-primary">
+
+
+</form>
+</div>
+</div></div>
+<div class="col-2"></div>
+<div  class="col-6">
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Class</th>
+            <th scope="col">Stream</th>
+            <th scope="col">Mark</th>
+            <th scope="col">Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (row in rows){%>
+      <tr>
+        <th scope="row"><%= parseInt(row) +1 %></th>
+        <td><%= rows[row].name %><td>
+        <td><%= rows[row].class %></td>
+        <td><%= rows[row].mark %></td>
+        <td><%= rows[row].stream %></td>
+        <td><%= rows[row].grade %></td>
+        <td><a href="/delete_student?id=<%= rows[row].student_id%>" class="btn"><img height="20px" width="20px" src="/bin.png"></a></td>
+<td><a href="/edit?id=<%= rows[row].student_id%>"><img height="20px" width="20px" src="/pencil.png"></a></td>
+
+      </tr>
+      <% } %>
+    </tbody>
+</table>
+
+</div></div>
+</div>
+</body>
+</html>

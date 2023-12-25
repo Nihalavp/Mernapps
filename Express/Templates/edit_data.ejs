@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student Data</title>
+</head>
+<body>
+    <h1>Edit Student Data</h1>
+    <form action="/update" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= student_data.name %>">
+        <br>
+        <label for="class">Class:</label>
+        <input type="text" id="class" name="cls" value="<%= student_data.class %>">
+        <br>
+        <label for="stream">Stream:</label>
+        <input type="text" id="stream" name="stream" value="<%= student_data.stream %>">
+        <br>
+        <label for="mark">Mark:</label>
+        <input type="text" id="mark" name="mark" value="<%= student_data.mark %>">
+        <br>
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" name="grade" value="<%= student_data.grade %>">
+        <br>
+        <button type="submit"><a href='/student_form'>Save Changes</a></button>
+    </form>
+</body>
+</html>
